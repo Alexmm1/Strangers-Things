@@ -1,3 +1,20 @@
 body {
     background-color: antiquewhite;
 }
+
+.navbar {
+    display: flex;
+    background-color: bisque;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar ul li {
+    padding-left: 10px;
+}
