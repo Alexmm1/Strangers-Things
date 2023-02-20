@@ -5,9 +5,11 @@ export const fetchPost = async () => {
   try {
     const response = await fetch(BaseUrl);
     const result = await response.json();
-    console.log(result);
+
     return result.data.posts;
   } catch (error) {
     console.log(error);
   }
 };
+
+export const postLogin = () => {};
