@@ -11,8 +11,8 @@ function LoginForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const result = await postLogin(username, password);
-    if (Response.success) {
-      localStorage.setItem("token", response.token);
+    if (result.success) {
+      localStorage.setItem("token", result.token);
     } else {
       console.log(result.error);
     }
@@ -24,6 +24,7 @@ function LoginForm() {
         <label>
           Username:
           <input
+            placeholder="Username"
             value={username}
             type="text"
             name="username"
@@ -36,6 +37,7 @@ function LoginForm() {
         <label>
           Password:
           <input
+            placeholder="Password"
             value={password}
             type="text"
             name="password"
