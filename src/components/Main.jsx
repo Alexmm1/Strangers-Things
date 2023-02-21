@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { fetchPost } from "../api-adapter";
 import LoginForm from "./LoginForm";
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 
 const Main = () => {
   const [posts, setPosts] = useState([]);

@@ -12,4 +12,21 @@ export const fetchPost = async () => {
   }
 };
 
-export const postLogin = () => {};
+export const postLogin = async (usename, password) => {
+  try {
+    const response = await fetch(BaseUrl, {
+      method: "POST",
+      headres: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          username: "username",
+          password: "password",
+        },
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {}
+};
