@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import { fetchPost } from "../api-adapter";
 import LoginForm from "./LoginForm";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import AllPost from "./Allpost";
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
@@ -30,9 +31,16 @@ const Main = () => {
 
   return (
     <div id="main">
-      <Navbar />
-      <LoginForm />
-      {displayPosts}
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/login" element={<LoginForm />} />
+          <Route
+            path="/Home"
+            element={<AllPost displayPosts={displayPosts} />}
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };

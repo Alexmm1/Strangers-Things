@@ -1,13 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import LoginForm from "./LoginForm";
 
 function Navbar() {
   return (
     <div className="navbar">
       <h2>Stranger's Things</h2>
       <ul>
-        <li>Home</li>
+        <Link to="/Home">
+          <li>Home</li>
+        </Link>
         <li>Post</li>
-        <li>Login</li>
+        <Link to="/login">
+          <li>Login</li>
+        </Link>
       </ul>
     </div>
   );

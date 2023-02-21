@@ -1,9 +1,7 @@
-const BaseUrl =
-  "https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/posts";
-
+const BaseUrl = "https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT";
 export const fetchPost = async () => {
   try {
-    const response = await fetch(BaseUrl);
+    const response = await fetch(`${BaseUrl}/posts`);
     const result = await response.json();
 
     return result.data.posts;
@@ -12,21 +10,44 @@ export const fetchPost = async () => {
   }
 };
 
-export const postLogin = async (usename, password) => {
+export const postRegister = async (username, password) => {
   try {
-    const response = await fetch(BaseUrl, {
+    const response = await fetch(`${BaseUrl}/users/register`, {
       method: "POST",
-      headres: {
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         user: {
-          username: "username",
-          password: "password",
+          username: username,
+          password: password,
         },
       }),
     });
     const result = await response.json();
     return result;
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const postLogin = async (username, password) => {
+  try {
+    const response = await fetch(`${BaseUrl}/users/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          username: username,
+          password: password,
+        },
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
