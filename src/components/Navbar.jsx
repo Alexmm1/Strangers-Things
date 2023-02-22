@@ -11,7 +11,7 @@ function Navbar() {
           <li>Home</li>
         </Link>
         <Link to="/newPost">
-          <li>Post</li>
+          <li>Create new post</li>
         </Link>
         <Link to="/login">
           <li>Login</li>

@@ -24,6 +24,7 @@ body {
 
 .navbar ul li {
     padding-left: 15px;
+    text-decoration: none;
 
 }
 
@@ -47,7 +48,7 @@ form {
 }
 
 form label {
-    padding: 1rem;
+    padding: 10px;
 }
 
 form input {

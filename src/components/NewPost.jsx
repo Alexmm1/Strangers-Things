@@ -6,7 +6,7 @@ export default function NewPost() {
   const [description, setNewDescription] = useState("");
   const [body, setNewBody] = useState("");
   return (
-    <div>
+    <div className="form" id="login">
       <form
         onSubmit={(event) => {
           event.preventDefault();

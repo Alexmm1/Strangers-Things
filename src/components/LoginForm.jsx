@@ -1,17 +1,21 @@
 import React from "react";
 import { useState } from "react";
 import { Login } from "../api-adapter";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const result = await Login(username, password);
     if (result.success) {
       localStorage.setItem("token", result.token);
+      navigate("/");
     } else {
+      alert("User not identify! Please try Again");
       console.log(result.error);
     }
   };
