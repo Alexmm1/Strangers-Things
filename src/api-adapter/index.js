@@ -31,7 +31,7 @@ export const postRegister = async (username, password) => {
   }
 };
 
-export const postLogin = async (username, password) => {
+export const Login = async (username, password) => {
   try {
     const response = await fetch(`${BaseUrl}/users/login`, {
       method: "POST",

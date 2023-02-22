@@ -1,16 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { postLogin } from "../api-adapter";
-import { postRegister } from "../api-adapter";
+import { Login } from "../api-adapter";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const result = await postLogin(username, password);
+    const result = await Login(username, password);
     if (result.success) {
       localStorage.setItem("token", result.token);
     } else {

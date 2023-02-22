@@ -34,11 +34,11 @@ const Main = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/login" element={<LoginForm />} />
           <Route
             path="/Home"
             element={<AllPost displayPosts={displayPosts} />}
           />
+          <Route path="/login" element={<LoginForm />} />
         </Routes>
       </BrowserRouter>
     </div>
