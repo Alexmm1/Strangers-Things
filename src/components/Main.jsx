@@ -22,8 +22,10 @@ const Main = () => {
   const displayPosts = posts.map((e, idx) => {
     return (
       <div className="postContainer" key={idx}>
-        <h1>{e.title}</h1>
+        <h2>{e.title}</h2>
         <p>{e.description}</p>
+        <p>{e.price}</p>
+        <button className="delete">DELETE</button>
       </div>
     );
   });

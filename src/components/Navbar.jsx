@@ -6,6 +6,7 @@ function Navbar() {
   return (
     <div className="navbar">
       <h2>Stranger's Things</h2>
+      
       <ul>
         <Link to="/">
           <li>Home</li>

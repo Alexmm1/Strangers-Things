@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Login } from "../api-adapter";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
@@ -50,6 +50,10 @@ function LoginForm() {
           />
         </label>
         <button type="submit">Log in</button>
+        <Link to={"/"}>
+          {" "}
+          <p className="singUp">Don't have an account? Sing Up</p>
+        </Link>
       </form>
     </div>
   );
