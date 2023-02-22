@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { fetchPost } from "../api-adapter";
 import LoginForm from "./LoginForm";
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AllPost from "./Allpost";
 import NewPost from "./NewPost";
 

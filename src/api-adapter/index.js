@@ -51,3 +51,43 @@ export const Login = async (username, password) => {
     console.log(error);
   }
 };
+
+export const PostForm = async (title, description, price) => {
+  try {
+    const response = await fetch(`${BaseUrl}/posts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        post: {
+          title: title,
+          description: description,
+          price: price,
+          willDeliver: true,
+        },
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deletePost = async (id) => {
+  try {
+    const response = await fetch(`${BaseUrl}/posts/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    const result = await response.json();
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+};

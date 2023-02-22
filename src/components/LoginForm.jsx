@@ -11,8 +11,8 @@ function LoginForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const result = await Login(username, password);
-    if (result.success) {
-      localStorage.setItem("token", result.token);
+    if (result != undefined) {
+      localStorage.setItem("token", result.data.token);
       navigate("/");
     } else {
       alert("User not identify! Please try Again");
