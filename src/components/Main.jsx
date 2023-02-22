@@ -4,6 +4,7 @@ import { fetchPost } from "../api-adapter";
 import LoginForm from "./LoginForm";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import AllPost from "./Allpost";
+import NewPost from "./NewPost";
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
@@ -34,11 +35,9 @@ const Main = () => {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route
-            path="/Home"
-            element={<AllPost displayPosts={displayPosts} />}
-          />
+          <Route path="/" element={<AllPost displayPosts={displayPosts} />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/newPost" element={<NewPost />} />
         </Routes>
       </BrowserRouter>
     </div>

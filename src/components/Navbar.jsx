@@ -7,10 +7,12 @@ function Navbar() {
     <div className="navbar">
       <h2>Stranger's Things</h2>
       <ul>
-        <Link to="/Home">
+        <Link to="/">
           <li>Home</li>
         </Link>
-        <li>Post</li>
+        <Link to="/newPost">
+          <li>Post</li>
+        </Link>
         <Link to="/login">
           <li>Login</li>
         </Link>
