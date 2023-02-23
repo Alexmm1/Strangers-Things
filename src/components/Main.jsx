@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import { fetchPost } from "../api-adapter";
+import { fetchPost, deletePost } from "../api-adapter";
 import LoginForm from "./LoginForm";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import AllPost from "./Allpost";
 import NewPost from "./NewPost";
 import Button from "react-bootstrap/Button";
@@ -10,6 +10,7 @@ import Messages from "./Messages";
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
+
   async function getPosts() {
     try {
       const allPost = await fetchPost();
@@ -21,6 +22,18 @@ const Main = () => {
     getPosts();
   }, []);
 
+  async function delPostDom(id, idx) {
+    let currentPost = posts;
+    try {
+      await deletePost(id);
+      currentPost.splice(idx, 1);
+      setPosts(currentPost);
+      Navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const displayPosts = posts.map((e, idx) => {
     return (
       <div className="postContainer" key={idx}>
@@ -30,6 +43,7 @@ const Main = () => {
 
         <div className="postButtons">
           <Button
+            onSubmit={delPostDom}
             variant="outline-dark"
             size="sm"
             className="logBut"
