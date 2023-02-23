@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { fetchPost } from "../api-adapter";
 import LoginForm from "./LoginForm";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import AllPost from "./Allpost";
 import NewPost from "./NewPost";
+import Button from "react-bootstrap/Button";
+import Messages from "./Messages";
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
@@ -25,7 +27,27 @@ const Main = () => {
         <h2>{e.title}</h2>
         <p>{e.description}</p>
         <p>{e.price}</p>
-        <button className="delete">DELETE</button>
+
+        <div className="postButtons">
+          <Button
+            variant="outline-dark"
+            size="sm"
+            className="logBut"
+            type="submit"
+          >
+            DELETE
+          </Button>
+          <Link to={`/Messages/${e._id}`}>
+            <Button
+              variant="outline-dark"
+              size="sm"
+              className="logBut"
+              type="submit"
+            >
+              MESSAGE ME
+            </Button>
+          </Link>
+        </div>
       </div>
     );
   });
@@ -40,6 +62,7 @@ const Main = () => {
           <Route path="/" element={<AllPost displayPosts={displayPosts} />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/newPost" element={<NewPost />} />
+          <Route path="/Messages/:id" element={<Messages />} />
         </Routes>
       </BrowserRouter>
     </div>

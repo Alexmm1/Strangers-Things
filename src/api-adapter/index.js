@@ -1,7 +1,13 @@
 const BaseUrl = "https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT";
 export const fetchPost = async () => {
   try {
-    const response = await fetch(`${BaseUrl}/posts`);
+    const response = await fetch(`${BaseUrl}/posts`, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
     const result = await response.json();
 
     return result.data.posts;
@@ -84,6 +90,27 @@ export const deletePost = async (id) => {
         "Content-type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
+    });
+    const result = await response.json();
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const postMessage = async (id, content) => {
+  try {
+    const response = await fetch(`${BaseUrl}/posts/${id}/messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        message: {
+          content: content,
+        },
+      }),
     });
     const result = await response.json();
     console.log(result);

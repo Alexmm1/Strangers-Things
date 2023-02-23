@@ -1,6 +1,8 @@
-body {
-    background-color: rgb(247, 227, 202);
+body {}
 
+#main {
+    background-color: rgba(167, 144, 119, 0.375);
+    height: 100vh;
 }
 
 * {
@@ -9,16 +11,31 @@ body {
 
 .navbar {
     display: flex;
-    background-color: rgba(66, 38, 38, 0.291);
+    background-color: rgba(134, 71, 71, 0.291);
     justify-content: space-between;
     padding: 1rem;
+    width: 99%;
+    margin: 0 auto;
 }
 
 .navbar ul {
+    padding: 1rem;
     list-style: none;
     display: flex;
     flex-direction: row;
 
+}
+
+.btn-sm {
+    margin-left: 1rem;
+}
+
+.btn-outline-dark {
+    --bs-btn-color: #68829c;
+}
+
+.navbar h2 {
+    padding: 1rem;
 }
 
 .postContainer {
@@ -65,15 +82,23 @@ body {
     align-items: center;
     margin-top: 10%;
 
+    background-color: rgba(0, 0, 0, 0.151);
 }
 
-form {
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.119);
-    width: 530px;
+    width: 430px;
     align-items: center;
-    height: 500px;
+    height: 400px;
     justify-content: center;
 
 }
@@ -84,11 +109,11 @@ form {
     font-size: 12px;
 }
 
-form label {
+.form label {
     padding: 10px;
 }
 
-form input {
+.form input {
     padding: 4px;
     margin: 5px;
 }

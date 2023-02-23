@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Login } from "../api-adapter";
 import { useNavigate, Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
@@ -21,8 +22,8 @@ function LoginForm() {
   };
 
   return (
-    <div className="form" id="login">
-      <form onSubmit={handleSubmit}>
+    <div id="login">
+      <form className="form" onSubmit={handleSubmit}>
         <label>
           Username:
           <input
@@ -49,9 +50,15 @@ function LoginForm() {
             }}
           />
         </label>
-        <button type="submit">Log in</button>
+        <Button
+          variant="outline-dark"
+          size="sm"
+          className="logBut"
+          type="submit"
+        >
+          Log in
+        </Button>
         <Link to={"/"}>
-          {" "}
           <p className="singUp">Don't have an account? Sing Up</p>
         </Link>
       </form>

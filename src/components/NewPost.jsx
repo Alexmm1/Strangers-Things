@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PostForm } from "../api-adapter";
+import Button from "react-bootstrap/Button";
 
 export default function NewPost() {
   const [newTitle, setNewTitle] = useState("");
@@ -21,8 +22,8 @@ export default function NewPost() {
   };
 
   return (
-    <div className="form" id="login">
-      <form onSubmit={handlePost}>
+    <div id="login">
+      <form className="form" onSubmit={handlePost}>
         <label>
           Title:
           <input
@@ -59,7 +60,14 @@ export default function NewPost() {
             }}
           />
         </label>
-        <button>Post</button>
+        <Button
+          variant="outline-dark"
+          size="sm"
+          className="logBut"
+          type="submit"
+        >
+          Post
+        </Button>
       </form>
     </div>
   );
