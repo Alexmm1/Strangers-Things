@@ -15,20 +15,21 @@ const Main = () => {
     try {
       const allPost = await fetchPost();
       setPosts(allPost);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {
     getPosts();
   }, []);
 
-  async function delPostDom(id, idx) {
-    let currentPost = posts;
+  async function delPostDom(id) {
     try {
+      console.log(id);
       await deletePost(id);
-      currentPost.splice(idx, 1);
-      setPosts(currentPost);
-      Navigate("/");
+
+      getPosts();
     } catch (error) {
       console.log(error);
     }
@@ -43,7 +44,9 @@ const Main = () => {
 
         <div className="postButtons">
           <Button
-            onSubmit={delPostDom}
+            onClick={() => {
+              delPostDom(e._id);
+            }}
             variant="outline-dark"
             size="sm"
             className="logBut"
@@ -75,7 +78,7 @@ const Main = () => {
         <Routes>
           <Route path="/" element={<AllPost displayPosts={displayPosts} />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/newPost" element={<NewPost />} />
+          <Route path="/newPost" element={<NewPost getPosts={getPosts}/>} />
           <Route path="/Messages/:id" element={<Messages />} />
         </Routes>
       </BrowserRouter>

@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { PostForm } from "../api-adapter";
 import Button from "react-bootstrap/Button";
 
-export default function NewPost() {
+export default function NewPost(props) {
+  console.log(props);
   const [newTitle, setNewTitle] = useState("");
   const [description, setNewDescription] = useState("");
   const [price, setNewPrice] = useState("");
@@ -15,6 +16,7 @@ export default function NewPost() {
     const result = await PostForm(newTitle, description, price);
     if (result != undefined) {
       localStorage.setItem("token", result.data.token);
+      getPosts();
       navigate("/");
     } else {
       console.log(result.error);
