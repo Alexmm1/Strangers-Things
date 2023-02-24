@@ -14,9 +14,8 @@ export default function NewPost(props) {
   const handlePost = async (event) => {
     event.preventDefault();
     const result = await PostForm(newTitle, description, price);
-    if (result != undefined) {
+    if (result) {
       localStorage.setItem("token", result.data.token);
-      getPosts();
       navigate("/");
     } else {
       console.log(result.error);

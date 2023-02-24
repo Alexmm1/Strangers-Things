@@ -74,11 +74,11 @@ const Main = () => {
   return (
     <div id="main">
       <BrowserRouter>
-        <Navbar />
+        <Navbar posts={posts} />
         <Routes>
           <Route path="/" element={<AllPost displayPosts={displayPosts} />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/newPost" element={<NewPost getPosts={getPosts}/>} />
+          <Route path="/newPost" element={<NewPost getPosts={getPosts} />} />
           <Route path="/Messages/:id" element={<Messages />} />
         </Routes>
       </BrowserRouter>

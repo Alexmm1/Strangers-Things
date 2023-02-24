@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LoginForm from "./LoginForm";
+import { Search } from "./Search";
+import AllPost from "./Allpost";
 
-function Navbar() {
+function Navbar(props) {
   return (
     <div className="navbar">
       <h2>Stranger's Things</h2>
-      
+      <Search posts={props.posts} />
       <ul>
         <Link to="/">
           <li>Home</li>
