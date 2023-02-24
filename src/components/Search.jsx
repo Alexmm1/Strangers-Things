@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import AllPost from "./Allpost";
+import { useNavigate } from "react-router-dom";
 
 export const Search = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
 
   const searchPost = (e) => {
     e.preventDefault();
+    const searchToLower = searchTerm.toLowerCase();
     const filteredSearch = props.posts.filter((post) => {
-      post.title.includes(searchTerm);
+      const postToLower = post.title.toLowerCase();
+      return postToLower.includes(searchToLower);
     });
+
     console.log(filteredSearch);
+    props.setPosts(filteredSearch);
+    navigate("/");
   };
 
   return (

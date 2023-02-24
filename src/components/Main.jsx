@@ -74,7 +74,7 @@ const Main = () => {
   return (
     <div id="main">
       <BrowserRouter>
-        <Navbar posts={posts} />
+        <Navbar posts={posts} setPosts={setPosts} />
         <Routes>
           <Route path="/" element={<AllPost displayPosts={displayPosts} />} />
           <Route path="/login" element={<LoginForm />} />

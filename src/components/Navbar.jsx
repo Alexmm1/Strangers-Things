@@ -7,7 +7,7 @@ function Navbar(props) {
   return (
     <div className="navbar">
       <h2>Stranger's Things</h2>
-      <Search posts={props.posts} />
+      <Search posts={props.posts} setPosts={props.setPosts} />
       <ul>
         <Link to="/">
           <li>Home</li>
