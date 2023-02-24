@@ -23,7 +23,7 @@ export default function NewPost(props) {
   };
 
   return (
-    <div id="login">
+    <div className="formContainer" id="login">
       <form className="form" onSubmit={handlePost}>
         <label>
           Title:

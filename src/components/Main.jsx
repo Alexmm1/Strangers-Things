@@ -47,7 +47,7 @@ const Main = () => {
             onClick={() => {
               delPostDom(e._id);
             }}
-            variant="outline-dark"
+            variant="outline-danger"
             size="sm"
             className="logBut"
             type="submit"
@@ -56,7 +56,7 @@ const Main = () => {
           </Button>
           <Link to={`/Messages/${e._id}`}>
             <Button
-              variant="outline-dark"
+              variant="outline-success"
               size="sm"
               className="logBut"
               type="submit"

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { postMessage } from "../api-adapter";
+import Button from "react-bootstrap/Button";
 
 export default function Messages() {
   let { id } = useParams();
@@ -20,7 +21,7 @@ export default function Messages() {
   };
 
   return (
-    <div id="msg">
+    <div className="formContainer" id="msg">
       <form className="form" onSubmit={handleMsg}>
         <label>
           Username:
@@ -35,7 +36,9 @@ export default function Messages() {
             }}
           />
         </label>
-        <button type="submit">Send</button>
+        <Button variant="outline-primary" size="sm" type="submit">
+          Send
+        </Button>
       </form>
     </div>
   );

@@ -22,7 +22,7 @@ function LoginForm() {
   };
 
   return (
-    <div id="login">
+    <div className="formContainer" id="login">
       <form className="form" onSubmit={handleSubmit}>
         <label>
           Username:
