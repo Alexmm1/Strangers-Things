@@ -32,7 +32,9 @@ export const Search = (props) => {
             setSearchTerm(e.target.value);
           }}
         />
-        <button id="search">Search</button>
+        <button id="search" disabled={!searchTerm}>
+          Search
+        </button>
       </form>
     </div>
   );
