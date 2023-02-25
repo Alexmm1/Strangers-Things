@@ -43,17 +43,20 @@ const Main = () => {
         <p>{e.price}</p>
 
         <div className="postButtons">
-          <Button
-            onClick={() => {
-              delPostDom(e._id);
-            }}
-            variant="outline-danger"
-            size="sm"
-            className="logBut"
-            type="submit"
-          >
-            DELETE
-          </Button>
+          {e.isAuthor === true ? (
+            <Button
+              onClick={() => {
+                delPostDom(e._id);
+              }}
+              variant="outline-danger"
+              size="sm"
+              className="logBut"
+              type="submit"
+            >
+              DELETE
+            </Button>
+          ) : null}
+
           <Link to={`/Messages/${e._id}`}>
             <Button
               variant="outline-success"

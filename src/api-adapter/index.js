@@ -118,3 +118,11 @@ export const postMessage = async (id, content) => {
     console.log(error);
   }
 };
+
+// export const myData = async () => {
+//   try {
+//     const response = await fetch(fetch(`${BASE_URL}/users/me`,{
+
+//     });
+//   } catch (error) {}
+// };

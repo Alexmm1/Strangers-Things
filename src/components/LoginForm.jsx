@@ -16,7 +16,6 @@ function LoginForm() {
       localStorage.setItem("token", result.data.token);
       navigate("/");
     } else {
-      alert("User not identify! Please try Again");
       console.log(result.error);
     }
   };

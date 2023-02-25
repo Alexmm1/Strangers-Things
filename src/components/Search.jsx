@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AllPost from "./Allpost";
 import { useNavigate } from "react-router-dom";
 
 export const Search = (props) => {
@@ -16,7 +15,7 @@ export const Search = (props) => {
 
     console.log(filteredSearch);
     props.setPosts(filteredSearch);
-    navigate("/");
+    navigate("/home");
   };
 
   return (
