@@ -1,27 +1,24 @@
-import React from "react";
-import { useState } from "react";
-import { Login } from "../api-adapter";
-import { useNavigate, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { postRegister } from "../api-adapter";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-function LoginForm() {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const result = await Login(username, password);
-    if (result != undefined) {
-      localStorage.setItem("token", result.data.token);
-      navigate("/");
-    } else {
-      console.log(result.error);
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const result = await postRegister(username, password);
+    localStorage.setItem("token", result.data.token);
+    setUsername("");
+    setPassword("");
+    navigate("/login");
   };
 
   return (
-    <div className="formContainer" id="login">
+    <div className="formContainer" id="register">
       <form className="form" onSubmit={handleSubmit}>
         <label>
           Username:
@@ -49,20 +46,30 @@ function LoginForm() {
             }}
           />
         </label>
+        <label>
+          Confirm Password:
+          <input
+            placeholder="Password"
+            value={password}
+            type="text"
+            name="password"
+            onChange={(event) => {
+              console.log(event.target.value);
+              setPassword(event.target.value);
+            }}
+          />
+        </label>
         <Button
           variant="outline-dark"
           size="sm"
           className="logBut"
           type="submit"
         >
-          Log in
+          Sing Up
         </Button>
-        <Link to={"/register"}>
-          <p className="singUp">Don't have an account? Sing Up</p>
-        </Link>
       </form>
     </div>
   );
-}
+};
 
-export default LoginForm;
+export default Register;

@@ -6,5 +6,6 @@ export { default as fetchPost } from "../api-adapter";
 export { default as NewPost } from "./NewPost";
 export { default as deletePost } from "../api-adapter";
 export { default as Messages } from "../Messages";
+export { default as Register } from "./Register";
 export { default as Search } from "./Search";
 export { default as Profile } from "./Profile";

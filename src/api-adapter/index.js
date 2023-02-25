@@ -119,10 +119,17 @@ export const postMessage = async (id, content) => {
   }
 };
 
-// export const myData = async () => {
-//   try {
-//     const response = await fetch(fetch(`${BASE_URL}/users/me`,{
-
-//     });
-//   } catch (error) {}
-// };
+export const myData = async () => {
+  try {
+    const response = await fetch(`${BaseUrl}/users/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -15,9 +15,9 @@ function Navbar(props) {
         <Link to="/newPost">
           <li>Create new post</li>
         </Link>
-        <Link to="/profile">
+        {/* <Link to="/profile">
           <li>Profile</li>
-        </Link>
+        </Link> */}
         <Link to="/login">
           <li>Login</li>
         </Link>

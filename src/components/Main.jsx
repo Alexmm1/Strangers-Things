@@ -7,6 +7,8 @@ import AllPost from "./Allpost";
 import NewPost from "./NewPost";
 import Button from "react-bootstrap/Button";
 import Messages from "./Messages";
+import Register from "./Register";
+import Profile from "./Profile";
 
 const Main = () => {
   const [posts, setPosts] = useState([]);
@@ -81,6 +83,11 @@ const Main = () => {
         <Routes>
           <Route path="/" element={<AllPost displayPosts={displayPosts} />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<Register />} />
+          {/* <Route
+            path="/profile"
+            element={<Profile notifications={props.notifications} />}
+          /> */}
           <Route path="/newPost" element={<NewPost getPosts={getPosts} />} />
           <Route path="/Messages/:id" element={<Messages />} />
         </Routes>
