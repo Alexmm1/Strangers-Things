@@ -15,7 +15,7 @@ export const Search = (props) => {
 
     console.log(filteredSearch);
     props.setPosts(filteredSearch);
-    navigate("/home");
+    navigate("/");
   };
 
   return (
